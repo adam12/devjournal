@@ -2,6 +2,12 @@
 
 The unoriginally named journal tool.
 
+Inspired by [Logger-TXT](https://github.com/grantlucas/Logger-TXT) by [Grant Lucas](https://github.com/grantlucas).
+
+## Why?
+
+Although I like Logger-TXT, I wanted something built on SQLite.
+
 ## Installation
 
 
@@ -10,19 +16,19 @@ TODO: Write installation instructions here
 
 ## Usage
 
-Upon first initialization, a logfile will be created at ~/log.sqlite3.
+Upon first initialization, a logfile will be created at `~/log.sqlite3`.
 
 ### Display Log Entries
 
-	log
+	$ log
 
 ### Add a single line entry
 
-	log This is an example line entry
+	$ log This is an example line entry
 
 ### Add a multiple line entry
 
-	log -
+	$ log -
 
 ## Development
 
