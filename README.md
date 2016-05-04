@@ -1,6 +1,6 @@
 # Log
 
-TODO: Write a description here
+The unoriginally named journal tool.
 
 ## Installation
 
@@ -10,9 +10,19 @@ TODO: Write installation instructions here
 
 ## Usage
 
+Upon first initialization, a logfile will be created at ~/log.sqlite3.
 
+### Display Log Entries
 
-TODO: Write usage instructions here
+	log
+
+### Add a single line entry
+
+	log This is an example line entry
+
+### Add a multiple line entry
+
+	log -
 
 ## Development
 
@@ -20,7 +30,7 @@ TODO: Write development instructions here
 
 ## Contributing
 
-1. Fork it ( https://github.com/[your-github-name]/logsql/fork )
+1. Fork it ( https://github.com/adam12/log/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
@@ -28,4 +38,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [[your-github-name]](https://github.com/[your-github-name]) Adam Daniels - creator, maintainer
+- [adam12](https://github.com/adam12) Adam Daniels - creator, maintainer
