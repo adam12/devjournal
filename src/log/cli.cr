@@ -6,7 +6,9 @@ module Log
     def initialize(@argv)
       parse_options
 
-      @logfile = Logfile.new("foo.sqlite")
+      filename = File.expand_path("~/log.sqlite3")
+
+      @logfile = Logfile.new(filename)
     end
 
     def run
