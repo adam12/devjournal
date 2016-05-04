@@ -5,3 +5,8 @@ authors:
   - Adam Daniels <adam@mediadrive.ca>
 
 license: MIT
+
+
+dependencies:
+  sqlite3:
+    github: manastech/crystal-sqlite3

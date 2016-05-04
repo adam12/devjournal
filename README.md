@@ -1,4 +1,4 @@
-# logsql
+# Log
 
 TODO: Write a description here
 
