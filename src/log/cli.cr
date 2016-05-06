@@ -3,7 +3,12 @@ require "colorize"
 
 module Log
   class CLI
-    def initialize(@argv)
+    @type : String | Nil
+    @project : String | Nil
+    @search_text : String | Nil
+    @clear_last_entry = false
+
+    def initialize(@argv : Array(String))
       parse_options
 
       filename = File.expand_path("~/log.sqlite3")
@@ -72,10 +77,6 @@ module Log
     end
 
     def parse_options
-      @type = nil
-      @project = nil
-      @search_text = nil
-      @clear_last_entry = false
 
       OptionParser.parse! do |parser|
         parser.banner = "Usage: #{$0} [arguments]"

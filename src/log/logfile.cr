@@ -2,7 +2,7 @@ require "sqlite3"
 
 module Log
   class Logfile
-    def initialize(@logfile)
+    def initialize(@logfile : String)
       @db = SQLite3::Database.new(@logfile)
 
       create_entries_table
