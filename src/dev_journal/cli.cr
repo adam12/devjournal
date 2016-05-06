@@ -1,7 +1,7 @@
 require "option_parser"
 require "colorize"
 
-module Log
+module DevJournal
   class CLI
     @type : String | Nil
     @project : String | Nil
@@ -87,7 +87,7 @@ module Log
         parser.on("-s TEXT", "Case insensitive search of the log file for the given text.") { |s| @search_text = s }
         parser.on("-x", "Deletes the last entry from the logfile.") { @clear_last_entry = true }
         parser.on("-h", "--help", "Show this help") { abort(parser) }
-        parser.on("-v", "--version", "Show the version") { abort("Log v#{Log::VERSION}") }
+        parser.on("-v", "--version", "Show the version") { abort("Log v#{DevJournal::VERSION}") }
       end
     end
 

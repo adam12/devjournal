@@ -1,6 +1,6 @@
 require "sqlite3"
 
-module Log
+module DevJournal
   class Logfile
     property :db
 
