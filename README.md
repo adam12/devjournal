@@ -1,10 +1,11 @@
-# Log
+# DevJournal
 
-The unoriginally named journal tool.
+I'd been reading [Jesper L. Andersen's](https://medium.com/@jlouis666/on-logbooks-e2380ab2f8f0) Medium post about
+*logbooks* when something just clicked. **I needed to start my own logbook.**
 
 Inspired by [Logger-TXT](https://github.com/grantlucas/Logger-TXT) by [Grant Lucas](https://github.com/grantlucas).
 
-## Why?
+## Why another tool?
 
 Although I like Logger-TXT, I wanted something built on SQLite.
 
@@ -32,7 +33,18 @@ Upon first initialization, a logfile will be created at `~/log.sqlite3`.
 
 ## Development
 
-TODO: Write development instructions here
+	$ git clone https://github.com/adam12/log
+	$ cd log
+	$ crystal deps
+	$ crystal run src/log.cr
+
+## Possible new features
+
+* Accept input from $EDITOR
+* Markdown?
+* Tags
+* Date range search
+* Custom log location
 
 ## Contributing
 
