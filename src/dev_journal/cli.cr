@@ -1,5 +1,6 @@
 require "option_parser"
 require "colorize"
+require "tempfile"
 
 module DevJournal
   class CLI
@@ -20,7 +21,7 @@ module DevJournal
       case
       when @search_text then search
       when @clear_last_entry then clear_last_entry
-      when @argv[0]? && @argv[0] == "-" then stdin_input
+      when @argv[0]? && @argv[0] == "-" then editor_input
       when @argv[0]? then argv_input
       else show_recent_entries
       end
@@ -50,6 +51,21 @@ module DevJournal
         puts body
         puts
       end
+    end
+
+    def editor_input
+      body = [] of String
+      editor = ENV.fetch("EDITOR", "vim")
+
+      tempfile = Tempfile.new("devjournal")
+      system(editor, [tempfile.path])
+
+      if $?.normal_exit?
+        body = File.read_lines(tempfile.path)
+        add_entry(body.join("\n"))
+      end
+
+      tempfile.unlink
     end
 
     def stdin_input
