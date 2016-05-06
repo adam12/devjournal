@@ -40,7 +40,6 @@ Upon first initialization, a logfile will be created at `~/log.sqlite3`.
 
 ## Possible new features
 
-* Accept input from $EDITOR
 * Markdown?
 * Tags
 * Date range search
@@ -48,7 +47,7 @@ Upon first initialization, a logfile will be created at `~/log.sqlite3`.
 
 ## Contributing
 
-1. Fork it ( https://github.com/adam12/log/fork )
+1. Fork it ( https://github.com/adam12/devjournal/fork )
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
