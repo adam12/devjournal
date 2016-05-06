@@ -2,6 +2,8 @@ require "sqlite3"
 
 module Log
   class Logfile
+    property :db
+
     def initialize(@logfile : String)
       @db = SQLite3::Database.new(@logfile)
 
@@ -9,27 +11,23 @@ module Log
     end
 
     def add_entry(body, type, project)
-      sql = <<-SQL
-        INSERT INTO entries(body, type, project) VALUES(?, ?, ?)
-      SQL
-
-      @db.execute(sql, body, type, project)
+      sql = "INSERT INTO entries(body, type, project) VALUES(?, ?, ?)"
+      db.execute(sql, body, type, project)
     end
 
     def entries
-      @db.execute("SELECT body, type, project, created_at FROM ENTRIES ORDER BY created_at DESC")
+      sql = "SELECT body, type, project, created_at FROM ENTRIES ORDER BY created_at DESC"
+      db.execute(sql)
     end
 
     def search_entries(q)
-      @db.execute("SELECT body, type, project, created_at FROM ENTRIES WHERE body LIKE ? ORDER BY created_at DESC", "%#{q}%")
+      sql = "SELECT body, type, project, created_at FROM ENTRIES WHERE body LIKE ? ORDER BY created_at DESC"
+      db.execute(sql, "%#{q}%")
     end
 
     def clear_last_entry
-      sql = <<-SQL
-        DELETE FROM entries
-      SQL
-
-      @db.execute(sql)
+      sql = "DELETE FROM entries WHERE id=(SELECT id FROM entries ORDER BY created_at DESC LIMIT 1) LIMIT 1"
+      db.execute(sql)
     end
 
     def create_entries_table
@@ -43,7 +41,7 @@ module Log
         )
       SQL
 
-      @db.execute(sql)
+      db.execute(sql)
     end
   end
 end
