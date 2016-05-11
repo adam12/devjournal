@@ -61,8 +61,8 @@ module DevJournal
       system(editor, [tempfile.path])
 
       if $?.normal_exit?
-        body = File.read_lines(tempfile.path)
-        add_entry(body.join("\n"))
+        body = File.read(tempfile.path)
+        add_entry(body)
       end
 
       tempfile.unlink
