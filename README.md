@@ -21,22 +21,28 @@ Upon first initialization, a logfile will be created at `~/log.sqlite3`.
 
 ### Display Log Entries
 
-	$ log
+	$ devjournal
 
 ### Add a single line entry
 
-	$ log This is an example line entry
+	$ devjournal This is an example line entry
 
 ### Add a multiple line entry
 
-	$ log -
+	$ devjournal -
+
+### Shorter CLI
+
+Alias `devjournal` to `dj` for less keystrokes.
+
+	$ alias dj='devjournal'
 
 ## Development
 
-	$ git clone https://github.com/adam12/log
-	$ cd log
+	$ git clone https://github.com/adam12/devjournal
+	$ cd devjournal
 	$ crystal deps
-	$ crystal run src/log.cr
+	$ crystal run src/dev_journal.cr
 
 ## Possible new features
 
