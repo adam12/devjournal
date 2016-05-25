@@ -38,18 +38,31 @@ module DevJournal
     end
 
     def display_entries(entries)
+      if STDIN.tty?
+        pager = ENV.fetch("PAGER", "less")
+
+        Process.run(pager, output: true) do |proc|
+          display_entries(entries, proc.input)
+          proc.input.close
+        end
+      else
+        display_entries(entries, STDOUT)
+      end
+    end
+
+    def display_entries(entries, output)
       entries.each do |entry|
         body = entry[0]
         type = entry[1]
         project = entry[2]
         created_at = entry[3]
 
-        puts created_at
-        puts "Type: #{type}".colorize(:blue) if type
-        puts "Project: #{project}".colorize(:yellow) if project
-        puts
-        puts body
-        puts
+        output.puts created_at
+        output.puts "Type: #{type}".colorize(:blue) if type
+        output.puts "Project: #{project}".colorize(:yellow) if project
+        output.puts
+        output.puts body
+        output.puts
       end
     end
 
