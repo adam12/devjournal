@@ -75,7 +75,12 @@ module DevJournal
 
       if $?.normal_exit?
         body = File.read(tempfile.path)
-        add_entry(body)
+
+        if !body.empty?
+          add_entry(body)
+        else
+          STDERR.puts "Skipping empty entry"
+        end
       end
 
       tempfile.unlink
