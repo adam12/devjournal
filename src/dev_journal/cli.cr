@@ -124,7 +124,7 @@ module DevJournal
         parser.on("-v", "--version", "Show the version") { abort("Log v#{DevJournal::VERSION}") }
       end
     rescue ex
-      puts ex.message
+      puts abort(ex.message)
     end
 
     def self.run
