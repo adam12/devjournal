@@ -123,6 +123,8 @@ module DevJournal
         parser.on("-h", "--help", "Show this help") { abort(parser) }
         parser.on("-v", "--version", "Show the version") { abort("Log v#{DevJournal::VERSION}") }
       end
+    rescue ex
+      puts abort(ex.message)
     end
 
     def self.run
