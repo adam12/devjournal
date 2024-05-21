@@ -10,3 +10,7 @@ license: MIT
 dependencies:
   sqlite3:
     github: crystal-lang/crystal-sqlite3
+
+targets:
+  app:
+    main: src/dev_journal.cr
