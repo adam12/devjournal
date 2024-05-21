@@ -11,7 +11,7 @@ module DevJournal
     def initialize(@argv : Array(String))
       parse_options
 
-      filename = File.expand_path("~/log.sqlite3")
+      filename = File.expand_path("#{ENV["HOME"]}/log.sqlite3")
 
       @logfile = Logfile.new(filename)
     end
