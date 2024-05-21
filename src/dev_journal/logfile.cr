@@ -2,8 +2,7 @@ require "sqlite3"
 
 module DevJournal
   class Logfile
-    @db : DB::Database
-    property :db
+    property db : DB::Database
 
     def initialize(@logfile : String)
       @db = DB.open("sqlite3://" + @logfile)
