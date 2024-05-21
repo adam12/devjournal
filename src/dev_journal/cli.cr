@@ -1,6 +1,5 @@
 require "option_parser"
 require "colorize"
-require "tempfile"
 
 module DevJournal
   class CLI
@@ -70,7 +69,7 @@ module DevJournal
       body = [] of String
       editor = ENV.fetch("EDITOR", "vim")
 
-      tempfile = Tempfile.new("devjournal")
+      tempfile = File.tempfile("devjournal")
       system(editor, [tempfile.path])
 
       if $?.normal_exit?
@@ -83,7 +82,7 @@ module DevJournal
         end
       end
 
-      tempfile.unlink
+      tempfile.delete
     end
 
     def stdin_input
