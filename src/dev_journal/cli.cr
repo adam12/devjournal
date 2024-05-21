@@ -50,11 +50,11 @@ module DevJournal
     end
 
     def display_entries(entries, output)
-      entries.each do |entry|
-        body = entry[0]
-        type = entry[1]
-        project = entry[2]
-        created_at = entry[3]
+      entries.each do
+        body = entries.read(String)
+        type = entries.read(String | Nil)
+        project = entries.read(String | Nil)
+        created_at = entries.read(String)
 
         output.puts created_at
         output.puts "Type: #{type}".colorize(:blue) if type
