@@ -110,9 +110,8 @@ module DevJournal
     end
 
     def parse_options
-
-      OptionParser.parse! do |parser|
         parser.banner = "Usage: #{$0} [arguments]"
+      OptionParser.parse do |parser|
         parser.on("-t TYPE", "--type=TYPE", "The type classification that the log event belongs to. example: work, school etc.") { |t| @type = t }
         parser.on("-p PROJECT", "--project=PROJECT", "The project that the log event belongs to. This helps group log events together
                                      which might belong to the same type or which my not belong to a type at all.") { |p| @project = p }
