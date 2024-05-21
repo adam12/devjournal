@@ -9,4 +9,4 @@ license: MIT
 
 dependencies:
   sqlite3:
-    github: manastech/crystal-sqlite3
+    github: crystal-lang/crystal-sqlite3
