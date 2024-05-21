@@ -40,7 +40,7 @@ module DevJournal
       if STDIN.tty?
         pager = ENV.fetch("PAGER", "less")
 
-        Process.run(pager, output: true) do |proc|
+        Process.run(pager, output: STDOUT, env: {"LESS" => "-R"}) do |proc|
           display_entries(entries, proc.input)
           proc.input.close
         end
